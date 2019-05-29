@@ -28,8 +28,8 @@ router.get("/:id", (req, res) => {
 
 router.post("/ ", (req, res) => {
     const { id, name, salary } = req.body;
-    mysqlCOnnection.query("SELECT * FROM employees"
-        + " WHERE id = ?", [id], (err, rows, fields) => {
+    mysqlCOnnection.query("INSERT INTO employees"
+        + " VALUES id = ?", [id], (err, rows, fields) => {
             if (!err) {
                 res.json(rows)
             } else {
